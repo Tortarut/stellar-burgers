@@ -24,34 +24,31 @@ describe('тестирование редьюсера constructorSlice', () => {
       ...initialState,
       constructorItems: {
         bun: {
-          _id: '643d69a5c3f7b9001cfa093c',
-          name: 'Краторная булка N-200i',
+          _id: '643d69a5c3f7b9001cfa093d',
+          name: 'Флюоресцентная булка R2-D3',
           type: 'bun',
-          proteins: 80,
-          fat: 24,
-          carbohydrates: 53,
-          calories: 420,
-          price: 1255,
-          image: 'https://code.s3.yandex.net/react/code/bun-02.png',
-          image_mobile:
-            'https://code.s3.yandex.net/react/code/bun-02-mobile.png',
-          image_large: 'https://code.s3.yandex.net/react/code/bun-02-large.png'
+          proteins: 44,
+          fat: 26,
+          carbohydrates: 85,
+          calories: 643,
+          price: 988,
+          image: 'https://code.s3.yandex.net/react/code/bun-01.png',
+          image_mobile: 'https://code.s3.yandex.net/react/code/bun-01-mobile.png',
+          image_large: 'https://code.s3.yandex.net/react/code/bun-01-large.png'
         },
         ingredients: [
           {
-            _id: '643d69a5c3f7b9001cfa0943',
-            name: 'Соус фирменный Space Sauce',
+            _id: '643d69a5c3f7b9001cfa0945',
+            name: 'Соус с шипами Антарианского плоскоходца',
             type: 'sauce',
-            proteins: 50,
-            fat: 22,
-            carbohydrates: 11,
-            calories: 14,
-            price: 80,
-            image: 'https://code.s3.yandex.net/react/code/sauce-04.png',
-            image_mobile:
-              'https://code.s3.yandex.net/react/code/sauce-04-mobile.png',
-            image_large:
-              'https://code.s3.yandex.net/react/code/sauce-04-large.png'
+            proteins: 101,
+            fat: 99,
+            carbohydrates: 100,
+            calories: 100,
+            price: 88,
+            image: 'https://code.s3.yandex.net/react/code/sauce-01.png',
+            image_mobile: 'https://code.s3.yandex.net/react/code/sauce-01-mobile.png',
+            image_large: 'https://code.s3.yandex.net/react/code/sauce-01-large.png'
           }
         ]
       }
@@ -61,19 +58,17 @@ describe('тестирование редьюсера constructorSlice', () => {
       const newState = constructorSlice(
         initialState,
         addIngredient({
-          _id: '643d69a5c3f7b9001cfa0943',
-          name: 'Соус фирменный Space Sauce',
+          _id: '643d69a5c3f7b9001cfa0945',
+          name: 'Соус с шипами Антарианского плоскоходца',
           type: 'sauce',
-          proteins: 50,
-          fat: 22,
-          carbohydrates: 11,
-          calories: 14,
-          price: 80,
-          image: 'https://code.s3.yandex.net/react/code/sauce-04.png',
-          image_mobile:
-            'https://code.s3.yandex.net/react/code/sauce-04-mobile.png',
-          image_large:
-            'https://code.s3.yandex.net/react/code/sauce-04-large.png'
+          proteins: 101,
+          fat: 99,
+          carbohydrates: 100,
+          calories: 100,
+          price: 88,
+          image: 'https://code.s3.yandex.net/react/code/sauce-01.png',
+          image_mobile: 'https://code.s3.yandex.net/react/code/sauce-01-mobile.png',
+          image_large: 'https://code.s3.yandex.net/react/code/sauce-01-large.png'
         })
       );
 
@@ -90,18 +85,17 @@ describe('тестирование редьюсера constructorSlice', () => {
       const newState = constructorSlice(
         initialState,
         addIngredient({
-          _id: '643d69a5c3f7b9001cfa093c',
-          name: 'Краторная булка N-200i',
+          _id: '643d69a5c3f7b9001cfa093d',
+          name: 'Флюоресцентная булка R2-D3',
           type: 'bun',
-          proteins: 80,
-          fat: 24,
-          carbohydrates: 53,
-          calories: 420,
-          price: 1255,
-          image: 'https://code.s3.yandex.net/react/code/bun-02.png',
-          image_mobile:
-            'https://code.s3.yandex.net/react/code/bun-02-mobile.png',
-          image_large: 'https://code.s3.yandex.net/react/code/bun-02-large.png'
+          proteins: 44,
+          fat: 26,
+          carbohydrates: 85,
+          calories: 643,
+          price: 988,
+          image: 'https://code.s3.yandex.net/react/code/bun-01.png',
+          image_mobile: 'https://code.s3.yandex.net/react/code/bun-01-mobile.png',
+          image_large: 'https://code.s3.yandex.net/react/code/bun-01-large.png'
         })
       );
 
@@ -118,20 +112,18 @@ describe('тестирование редьюсера constructorSlice', () => {
       const initialStateWithBun = {
         constructorItems: {
           bun: {
-            _id: '643d69a5c3f7b9001cfa093c',
-            name: 'Краторная булка N-200i',
+            _id: '643d69a5c3f7b9001cfa093d',
+            name: 'Флюоресцентная булка R2-D3',
             type: 'bun',
-            proteins: 80,
-            fat: 24,
-            carbohydrates: 53,
-            calories: 420,
+            proteins: 44,
+            fat: 26,
+            carbohydrates: 85,
+            calories: 643,
             id: 'its so funny =D',
-            price: 1255,
-            image: 'https://code.s3.yandex.net/react/code/bun-02.png',
-            image_mobile:
-              'https://code.s3.yandex.net/react/code/bun-02-mobile.png',
-            image_large:
-              'https://code.s3.yandex.net/react/code/bun-02-large.png'
+            price: 988,
+            image: 'https://code.s3.yandex.net/react/code/bun-01.png',
+            image_mobile: 'https://code.s3.yandex.net/react/code/bun-01-mobile.png',
+            image_large: 'https://code.s3.yandex.net/react/code/bun-01-large.png'
           },
           ingredients: []
         },
@@ -144,19 +136,17 @@ describe('тестирование редьюсера constructorSlice', () => {
         ...initialStateWithBun,
         constructorItems: {
           bun: {
-            _id: '643d69a5c3f7b9001cfa093d',
-            name: 'Флюоресцентная булка R2-D3',
+            _id: '643d69a5c3f7b9001cfa093c',
+            name: 'Краторная булка N-200i',
             type: 'bun',
-            proteins: 44,
-            fat: 26,
-            carbohydrates: 85,
-            calories: 643,
-            price: 988,
-            image: 'https://code.s3.yandex.net/react/code/bun-01.png',
-            image_mobile:
-              'https://code.s3.yandex.net/react/code/bun-01-mobile.png',
-            image_large:
-              'https://code.s3.yandex.net/react/code/bun-01-large.png'
+            proteins: 80,
+            fat: 24,
+            carbohydrates: 53,
+            calories: 420,
+            price: 1255,
+            image: 'https://code.s3.yandex.net/react/code/bun-02.png',
+            image_mobile: 'https://code.s3.yandex.net/react/code/bun-02-mobile.png',
+            image_large: 'https://code.s3.yandex.net/react/code/bun-02-large.png'
           },
           ingredients: []
         }
@@ -164,18 +154,17 @@ describe('тестирование редьюсера constructorSlice', () => {
       const newState = constructorSlice(
         initialStateWithBun,
         addIngredient({
-          _id: '643d69a5c3f7b9001cfa093d',
-          name: 'Флюоресцентная булка R2-D3',
+          _id: '643d69a5c3f7b9001cfa093c',
+          name: 'Краторная булка N-200i',
           type: 'bun',
-          proteins: 44,
-          fat: 26,
-          carbohydrates: 85,
-          calories: 643,
-          price: 988,
-          image: 'https://code.s3.yandex.net/react/code/bun-01.png',
-          image_mobile:
-            'https://code.s3.yandex.net/react/code/bun-01-mobile.png',
-          image_large: 'https://code.s3.yandex.net/react/code/bun-01-large.png'
+          proteins: 80,
+          fat: 24,
+          carbohydrates: 53,
+          calories: 420,
+          price: 1255,
+          image: 'https://code.s3.yandex.net/react/code/bun-02.png',
+          image_mobile: 'https://code.s3.yandex.net/react/code/bun-02-mobile.png',
+          image_large: 'https://code.s3.yandex.net/react/code/bun-02-large.png'
         })
       );
 
@@ -196,19 +185,17 @@ describe('тестирование редьюсера constructorSlice', () => {
         ingredients: [
           {
             id: 'funny',
-            _id: '643d69a5c3f7b9001cfa0944',
-            name: 'Соус традиционный галактический',
+            _id: '643d69a5c3f7b9001cfa0945',
+            name: 'Соус с шипами Антарианского плоскоходца',
             type: 'sauce',
-            proteins: 42,
-            fat: 24,
-            carbohydrates: 42,
-            calories: 99,
-            price: 15,
-            image: 'https://code.s3.yandex.net/react/code/sauce-03.png',
-            image_mobile:
-              'https://code.s3.yandex.net/react/code/sauce-03-mobile.png',
-            image_large:
-              'https://code.s3.yandex.net/react/code/sauce-03-large.png'
+            proteins: 101,
+            fat: 99,
+            carbohydrates: 100,
+            calories: 100,
+            price: 88,
+            image: 'https://code.s3.yandex.net/react/code/sauce-01.png',
+            image_mobile: 'https://code.s3.yandex.net/react/code/sauce-01-mobile.png',
+            image_large: 'https://code.s3.yandex.net/react/code/sauce-01-large.png'
           }
         ]
       },
@@ -243,38 +230,35 @@ describe('тестирование редьюсера constructorSlice', () => {
       constructorItems: {
         bun: {
           id: 'funBun',
-          _id: '643d69a5c3f7b9001cfa093c',
-          name: 'Краторная булка N-200i',
+          _id: '643d69a5c3f7b9001cfa093d',
+          name: 'Флюоресцентная булка R2-D3',
           type: 'bun',
-          proteins: 80,
-          fat: 24,
-          carbohydrates: 53,
-          calories: 420,
-          price: 1255,
-          image: 'https://code.s3.yandex.net/react/code/bun-02.png',
-          image_mobile:
-            'https://code.s3.yandex.net/react/code/bun-02-mobile.png',
-          image_large: 'https://code.s3.yandex.net/react/code/bun-02-large.png'
+          proteins: 44,
+          fat: 26,
+          carbohydrates: 85,
+          calories: 643,
+          price: 988,
+          image: 'https://code.s3.yandex.net/react/code/bun-01.png',
+          image_mobile: 'https://code.s3.yandex.net/react/code/bun-01-mobile.png',
+          image_large: 'https://code.s3.yandex.net/react/code/bun-01-large.png'
         },
         ingredients: [
           {
-            id: 'funnyPig1',
-            _id: '643d69a5c3f7b9001cfa0944',
-            name: 'Соус традиционный галактический',
+            id: 'mock_id1',
+            _id: '643d69a5c3f7b9001cfa0945',
+            name: 'Соус с шипами Антарианского плоскоходца',
             type: 'sauce',
-            proteins: 42,
-            fat: 24,
-            carbohydrates: 42,
-            calories: 99,
-            price: 15,
-            image: 'https://code.s3.yandex.net/react/code/sauce-03.png',
-            image_mobile:
-              'https://code.s3.yandex.net/react/code/sauce-03-mobile.png',
-            image_large:
-              'https://code.s3.yandex.net/react/code/sauce-03-large.png'
+            proteins: 101,
+            fat: 99,
+            carbohydrates: 100,
+            calories: 100,
+            price: 88,
+            image: 'https://code.s3.yandex.net/react/code/sauce-01.png',
+            image_mobile: 'https://code.s3.yandex.net/react/code/sauce-01-mobile.png',
+            image_large: 'https://code.s3.yandex.net/react/code/sauce-01-large.png'
           },
           {
-            id: 'funnyPig2',
+            id: 'mock_id2',
             _id: '643d69a5c3f7b9001cfa0946',
             name: 'Хрустящие минеральные кольца',
             type: 'main',
@@ -284,13 +268,11 @@ describe('тестирование редьюсера constructorSlice', () => {
             calories: 986,
             price: 300,
             image: 'https://code.s3.yandex.net/react/code/mineral_rings.png',
-            image_mobile:
-              'https://code.s3.yandex.net/react/code/mineral_rings-mobile.png',
-            image_large:
-              'https://code.s3.yandex.net/react/code/mineral_rings-large.png'
+            image_mobile: 'https://code.s3.yandex.net/react/code/mineral_rings-mobile.png',
+            image_large: 'https://code.s3.yandex.net/react/code/mineral_rings-large.png'
           },
           {
-            id: 'funnyPig3',
+            id: 'mock_id3',
             _id: '643d69a5c3f7b9001cfa0947',
             name: 'Плоды Фалленианского дерева',
             type: 'main',
@@ -300,8 +282,7 @@ describe('тестирование редьюсера constructorSlice', () => {
             calories: 77,
             price: 874,
             image: 'https://code.s3.yandex.net/react/code/sp_1.png',
-            image_mobile:
-              'https://code.s3.yandex.net/react/code/sp_1-mobile.png',
+            image_mobile: 'https://code.s3.yandex.net/react/code/sp_1-mobile.png',
             image_large: 'https://code.s3.yandex.net/react/code/sp_1-large.png'
           }
         ]
@@ -316,38 +297,35 @@ describe('тестирование редьюсера constructorSlice', () => {
       constructorItems: {
         bun: {
           id: 'funBun',
-          _id: '643d69a5c3f7b9001cfa093c',
-          name: 'Краторная булка N-200i',
+          _id: '643d69a5c3f7b9001cfa093d',
+          name: 'Флюоресцентная булка R2-D3',
           type: 'bun',
-          proteins: 80,
-          fat: 24,
-          carbohydrates: 53,
-          calories: 420,
-          price: 1255,
-          image: 'https://code.s3.yandex.net/react/code/bun-02.png',
-          image_mobile:
-            'https://code.s3.yandex.net/react/code/bun-02-mobile.png',
-          image_large: 'https://code.s3.yandex.net/react/code/bun-02-large.png'
+          proteins: 44,
+          fat: 26,
+          carbohydrates: 85,
+          calories: 643,
+          price: 988,
+          image: 'https://code.s3.yandex.net/react/code/bun-01.png',
+          image_mobile: 'https://code.s3.yandex.net/react/code/bun-01-mobile.png',
+          image_large: 'https://code.s3.yandex.net/react/code/bun-01-large.png'
         },
         ingredients: [
           {
-            id: 'funnyPig1',
-            _id: '643d69a5c3f7b9001cfa0944',
-            name: 'Соус традиционный галактический',
+            id: 'mock_id1',
+            _id: '643d69a5c3f7b9001cfa0945',
+            name: 'Соус с шипами Антарианского плоскоходца',
             type: 'sauce',
-            proteins: 42,
-            fat: 24,
-            carbohydrates: 42,
-            calories: 99,
-            price: 15,
-            image: 'https://code.s3.yandex.net/react/code/sauce-03.png',
-            image_mobile:
-              'https://code.s3.yandex.net/react/code/sauce-03-mobile.png',
-            image_large:
-              'https://code.s3.yandex.net/react/code/sauce-03-large.png'
+            proteins: 101,
+            fat: 99,
+            carbohydrates: 100,
+            calories: 100,
+            price: 88,
+            image: 'https://code.s3.yandex.net/react/code/sauce-01.png',
+            image_mobile: 'https://code.s3.yandex.net/react/code/sauce-01-mobile.png',
+            image_large: 'https://code.s3.yandex.net/react/code/sauce-01-large.png'
           },
           {
-            id: 'funnyPig3',
+            id: 'mock_id3',
             _id: '643d69a5c3f7b9001cfa0947',
             name: 'Плоды Фалленианского дерева',
             type: 'main',
@@ -357,12 +335,11 @@ describe('тестирование редьюсера constructorSlice', () => {
             calories: 77,
             price: 874,
             image: 'https://code.s3.yandex.net/react/code/sp_1.png',
-            image_mobile:
-              'https://code.s3.yandex.net/react/code/sp_1-mobile.png',
+            image_mobile: 'https://code.s3.yandex.net/react/code/sp_1-mobile.png',
             image_large: 'https://code.s3.yandex.net/react/code/sp_1-large.png'
           },
           {
-            id: 'funnyPig2',
+            id: 'mock_id2',
             _id: '643d69a5c3f7b9001cfa0946',
             name: 'Хрустящие минеральные кольца',
             type: 'main',
@@ -372,10 +349,8 @@ describe('тестирование редьюсера constructorSlice', () => {
             calories: 986,
             price: 300,
             image: 'https://code.s3.yandex.net/react/code/mineral_rings.png',
-            image_mobile:
-              'https://code.s3.yandex.net/react/code/mineral_rings-mobile.png',
-            image_large:
-              'https://code.s3.yandex.net/react/code/mineral_rings-large.png'
+            image_mobile: 'https://code.s3.yandex.net/react/code/mineral_rings-mobile.png',
+            image_large: 'https://code.s3.yandex.net/react/code/mineral_rings-large.png'
           }
         ]
       }
@@ -405,7 +380,7 @@ describe('тестирование редьюсера constructorSlice', () => {
       },
       rejected: {
         type: orderBurger.rejected.type,
-        error: { message: 'Funny mock-error' }
+        error: { message: 'Mock-error' }
       },
       fulfilled: {
         type: orderBurger.fulfilled.type,

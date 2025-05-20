@@ -21,7 +21,7 @@ describe('тестирование редьюсера userSlice', () => {
       },
       fulfilled: {
         type: getUser.fulfilled.type,
-        payload: { user: { name: 'someName', email: 'someEmail' } }
+        payload: { user: { name: 'name', email: 'email' } }
       }
     };
 
@@ -51,7 +51,7 @@ describe('тестирование редьюсера userSlice', () => {
       },
       rejected: {
         type: getOrdersAll.rejected.type,
-        error: { message: 'Funny mock-error' }
+        error: { message: 'Mock-error' }
       },
       fulfilled: {
         type: getOrdersAll.fulfilled.type,
@@ -86,11 +86,11 @@ describe('тестирование редьюсера userSlice', () => {
       },
       rejected: {
         type: registerUser.rejected.type,
-        error: { message: 'Funny mock-error' }
+        error: { message: 'Mock-error' }
       },
       fulfilled: {
         type: registerUser.fulfilled.type,
-        payload: { user: { name: 'someName', email: 'someEmail' } }
+        payload: { user: { name: 'name', email: 'email' } }
       }
     };
 
@@ -119,11 +119,11 @@ describe('тестирование редьюсера userSlice', () => {
       },
       rejected: {
         type: loginUser.rejected.type,
-        error: { message: 'Funny mock-error' }
+        error: { message: 'Mock-error' }
       },
       fulfilled: {
         type: loginUser.fulfilled.type,
-        payload: { user: { name: 'someName', email: 'someEmail' } }
+        payload: { user: { name: 'name', email: 'email' } }
       }
     };
 
@@ -158,11 +158,11 @@ describe('тестирование редьюсера userSlice', () => {
       },
       rejected: {
         type: updateUser.rejected.type,
-        error: { message: 'Funny mock-error' }
+        error: { message: 'Mock-error' }
       },
       fulfilled: {
         type: updateUser.fulfilled.type,
-        payload: { user: { name: 'someName', email: 'someEmail' } }
+        payload: { user: { name: 'name', email: 'email' } }
       }
     };
 
@@ -191,7 +191,7 @@ describe('тестирование редьюсера userSlice', () => {
       },
       rejected: {
         type: logoutUser.rejected.type,
-        error: { message: 'Funny mock-error' }
+        error: { message: 'Mock-error' }
       },
       fulfilled: {
         type: logoutUser.fulfilled.type,

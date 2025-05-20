@@ -12,7 +12,7 @@ describe('тестирование редьюсера ingredientSlice', () => {
       },
       rejected: {
         type: getIngredients.rejected.type,
-        error: { message: 'Funny mock-error' }
+        error: { message: 'Mock-error' }
       },
       fulfilled: {
         type: getIngredients.fulfilled.type,

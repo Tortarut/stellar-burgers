@@ -9,7 +9,7 @@ describe('тестирование редьюсера orderSlice', () => {
       },
       rejected: {
         type: getOrderByNumber.rejected.type,
-        error: { message: 'Funny mock-error' }
+        error: { message: 'Mock-error' }
       },
       fulfilled: {
         type: getOrderByNumber.fulfilled.type,

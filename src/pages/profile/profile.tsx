@@ -1,6 +1,6 @@
 import { ProfileUI } from '@ui-pages';
 import { FC, SyntheticEvent, useEffect, useState } from 'react';
-import { useSelector, useDispatch } from '../../services/store';
+import { useSelector, useDispatch } from '@store';
 import {
   getUser,
   getUserState,

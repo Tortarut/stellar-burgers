@@ -9,7 +9,7 @@ describe('тестирование редьюсера feedSlice', () => {
       },
       rejected: {
         type: getFeeds.rejected.type,
-        error: { message: 'Funny mock-error' }
+        error: { message: 'Mock-error' }
       },
       fulfilled: {
         type: getFeeds.fulfilled.type,

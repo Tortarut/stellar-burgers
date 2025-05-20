@@ -1,5 +1,5 @@
 import { Navigate, Outlet, useLocation } from 'react-router-dom';
-import { useSelector } from '../../services/store';
+import { useSelector } from '@store';
 import { Preloader } from '../ui/preloader';
 import { getUserState } from '../../services/slices/userSlice/userSlice';
 
