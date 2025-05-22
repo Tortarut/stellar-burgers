@@ -91,7 +91,7 @@ describe('оформление заказа', () => {
     cy.get(ID_BUN).children('button').click();
     cy.get(ID_FILLING).children('button').click();
     cy.get(`[data-cy='order-button']`).click();
-    cy.get('@modal').find('h2').contains('38483');
+    cy.get('@modal').find('h2').contains('75000');
   });
   
   it('отправка заказа с соусом и основным ингредиентом', () => {
@@ -99,7 +99,7 @@ describe('оформление заказа', () => {
     cy.get(ID_SAUCE).children('button').click();
     cy.get(ID_MAIN).children('button').click();
     cy.get(`[data-cy='order-button']`).click();
-    cy.get('@modal').find('h2').contains('38483');
+    cy.get('@modal').find('h2').contains('75000');
   });
 });
 

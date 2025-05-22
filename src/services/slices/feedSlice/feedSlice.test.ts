@@ -1,38 +1,93 @@
 import feedSlice, { getFeeds, initialState } from './feedSlice';
 
-describe('тестирование редьюсера feedSlice', () => {
-  describe('тестирование асинхронного GET экшена getFeeds', () => {
-    const actions = {
+describe('Тестирование редьюсера feedSlice', () => {
+  describe('Тестирование асинхронного действия getFeeds', () => {
+    const testCases = {
       pending: {
-        type: getFeeds.pending.type,
-        payload: null
+        action: {
+          type: getFeeds.pending.type,
+          payload: null
+        },
+        expectedState: {
+          loading: true,
+          error: null,
+          orders: []
+        }
       },
       rejected: {
-        type: getFeeds.rejected.type,
-        error: { message: 'Mock-error' }
+        action: {
+          type: getFeeds.rejected.type,
+          error: { message: 'Ошибка загрузки данных' }
+        },
+        expectedState: {
+          loading: false,
+          error: 'Ошибка загрузки данных',
+          orders: []
+        }
       },
       fulfilled: {
-        type: getFeeds.fulfilled.type,
-        payload: { orders: ['order1', 'order2'] }
+        action: {
+          type: getFeeds.fulfilled.type,
+          payload: { 
+            orders: [
+              { id: 1, status: 'created' },
+              { id: 2, status: 'pending' }
+            ],
+            total: 100,
+            totalToday: 10
+          }
+        },
+        expectedState: {
+          loading: false,
+          error: null,
+          orders: [
+            { id: 1, status: 'created' },
+            { id: 2, status: 'pending' }
+          ],
+          total: 100,
+          totalToday: 10
+        }
       }
     };
 
-    test('тест синхронного экшена getFeeds.pending', () => {
-      const state = feedSlice(initialState, actions.pending);
-      expect(state.loading).toBe(true);
-      expect(state.error).toBe(actions.pending.payload);
+    test('Состояние загрузки при pending', () => {
+      const newState = feedSlice(initialState, testCases.pending.action);
+      
+      expect(newState).toEqual({
+        ...initialState,
+        ...testCases.pending.expectedState
+      });
+      expect(newState.loading).toBeTruthy();
+      expect(newState.orders).toHaveLength(0);
     });
 
-    test('тест синхронного экшена getFeeds.rejected', () => {
-      const state = feedSlice(initialState, actions.rejected);
-      expect(state.loading).toBe(false);
-      expect(state.error).toBe(actions.rejected.error.message);
+    test('Обработка ошибки при rejected', () => {
+      const newState = feedSlice(initialState, testCases.rejected.action);
+      
+      expect(newState).toEqual({
+        ...initialState,
+        ...testCases.rejected.expectedState
+      });
+      expect(newState.loading).toBeFalsy();
+      expect(newState.error).toBeTruthy();
     });
 
-    test('тест синхронного экшена getFeeds.fulfilled', () => {
-      const nextState = feedSlice(initialState, actions.fulfilled);
-      expect(nextState.loading).toBe(false);
-      expect(nextState.orders).toEqual(actions.fulfilled.payload.orders);
+    test('Успешная загрузка данных при fulfilled', () => {
+      const newState = feedSlice(initialState, testCases.fulfilled.action);
+      
+      expect(newState).toEqual({
+        ...initialState,
+        ...testCases.fulfilled.expectedState
+      });
+      expect(newState.loading).toBeFalsy();
+      expect(newState.error).toBeNull();
+      expect(newState.orders).toHaveLength(2);
+      expect(newState.orders).toEqual(expect.arrayContaining([
+        expect.objectContaining({ id: 1 }),
+        expect.objectContaining({ id: 2 })
+      ]));
+      expect(newState.total).toBe(100);
+      expect(newState.totalToday).toBe(10);
     });
   });
 });

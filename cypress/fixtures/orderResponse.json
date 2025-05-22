@@ -2,7 +2,7 @@
   "success": true,
   "name": "Флюоресцентный люминесцентный био-марсианский бургер",
   "order": {
-    "createdAt": "2024-04-20T13:29:40.782Z",
+    "createdAt": "2025-05-20T13:12:14.782Z",
     "ingredients": [
       {
         "calories": 643,
@@ -48,10 +48,10 @@
     ],
     "_id": "6623c34497ede0001d066c4b",
     "name": "Флюоресцентный люминесцентный био-марсианский бургер",
-    "number": 38483,
+    "number": 75000,
     "owner": {
-      "email": "nigilen@gmail.com",
-      "name": "Nikola",
+      "email": "johnnyjostar@gmail.com",
+      "name": "John",
       "createdAt": "2024-04-03T12:09:44.278Z",
       "updatedAt": "2024-04-12T12:06:09.411Z"
     },

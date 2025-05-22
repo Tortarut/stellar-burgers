@@ -8,218 +8,188 @@ import userSlice, {
   logoutUser
 } from './userSlice';
 
-describe('тестирование редьюсера userSlice', () => {
-  describe('тестирование асинхронного GET экшена getUser', () => {
+describe('Тестирование редьюсера userSlice', () => {
+  describe('Обработка действия getUser', () => {
     const actions = {
-      pending: {
-        type: getUser.pending.type,
-        payload: null
-      },
-      rejected: {
-        type: getUser.rejected.type,
-        payload: null
-      },
+      pending: { type: getUser.pending.type, payload: null },
+      rejected: { type: getUser.rejected.type, payload: null },
       fulfilled: {
         type: getUser.fulfilled.type,
         payload: { user: { name: 'name', email: 'email' } }
       }
     };
 
-    test('тест синхронного экшена getUser.pending', () => {
+    test('Устанавливает error при getUser.pending', () => {
       const state = userSlice(initialState, actions.pending);
       expect(state.request).toBe(false);
       expect(state.error).toBe(actions.pending.payload);
     });
 
-    test('тест синхронного экшена getUser.rejected', () => {
+    test('Устанавливает error при getUser.rejected', () => {
       const state = userSlice(initialState, actions.rejected);
       expect(state.request).toBe(false);
       expect(state.error).toBe(actions.rejected.payload);
     });
 
-    test('тест синхронного экшена getUser.fulfilled', () => {
-      const nextState = userSlice(initialState, actions.fulfilled);
-      expect(nextState.request).toBe(false);
-      expect(nextState.userData).toEqual(actions.fulfilled.payload.user);
+    test('Сохраняет данные пользователя при getUser.fulfilled', () => {
+      const state = userSlice(initialState, actions.fulfilled);
+      expect(state.request).toBe(false);
+      expect(state.userData).toEqual(actions.fulfilled.payload.user);
     });
   });
-  describe('тестирование асинхронного GET экшена getOrdersAll', () => {
+
+  describe('Обработка действия getOrdersAll', () => {
     const actions = {
-      pending: {
-        type: getOrdersAll.pending.type,
-        payload: null
-      },
-      rejected: {
-        type: getOrdersAll.rejected.type,
-        error: { message: 'Mock-error' }
-      },
-      fulfilled: {
-        type: getOrdersAll.fulfilled.type,
-        payload: ['order1', 'order2']
-      }
+      pending: { type: getOrdersAll.pending.type, payload: null },
+      rejected: { type: getOrdersAll.rejected.type, error: { message: 'Mock-error' } },
+      fulfilled: { type: getOrdersAll.fulfilled.type, payload: ['order1', 'order2'] }
     };
 
-    test('тест синхронного экшена getOrdersAll.pending', () => {
+    test('Устанавливает request=true при getOrdersAll.pending', () => {
       const state = userSlice(initialState, actions.pending);
       expect(state.request).toBe(true);
       expect(state.error).toBe(actions.pending.payload);
     });
 
-    test('тест синхронного экшена getOrdersAll.rejected', () => {
+    test('Устанавливает ошибку при getOrdersAll.rejected', () => {
       const state = userSlice(initialState, actions.rejected);
       expect(state.request).toBe(false);
       expect(state.error).toBe(actions.rejected.error.message);
     });
 
-    test('тест синхронного экшена getOrdersAll.fulfilled', () => {
-      const nextState = userSlice(initialState, actions.fulfilled);
-      expect(nextState.request).toBe(false);
-      expect(nextState.userOrders).toEqual(actions.fulfilled.payload);
+    test('Сохраняет заказы при getOrdersAll.fulfilled', () => {
+      const state = userSlice(initialState, actions.fulfilled);
+      expect(state.request).toBe(false);
+      expect(state.userOrders).toEqual(actions.fulfilled.payload);
     });
   });
 
-  describe('тестирование асинхронного POST экшена registerUser', () => {
+  describe('Обработка действия registerUser', () => {
     const actions = {
-      pending: {
-        type: registerUser.pending.type,
-        payload: null
-      },
-      rejected: {
-        type: registerUser.rejected.type,
-        error: { message: 'Mock-error' }
-      },
+      pending: { type: registerUser.pending.type, payload: null },
+      rejected: { type: registerUser.rejected.type, error: { message: 'Mock-error' } },
       fulfilled: {
         type: registerUser.fulfilled.type,
         payload: { user: { name: 'name', email: 'email' } }
       }
     };
 
-    test('тест синхронного экшена registerUser.pending', () => {
-      const nextState = userSlice(initialState, actions.pending);
-      expect(nextState.request).toBe(true);
-      expect(nextState.error).toBe(actions.pending.payload);
+    test('Устанавливает request=true при registerUser.pending', () => {
+      const state = userSlice(initialState, actions.pending);
+      expect(state.request).toBe(true);
+      expect(state.error).toBe(actions.pending.payload);
     });
-    test('тест синхронного экшена registerUser.rejected', () => {
-      const nextState = userSlice(initialState, actions.rejected);
-      expect(nextState.request).toBe(false);
-      expect(nextState.error).toBe(actions.rejected.error.message);
+
+    test('Устанавливает ошибку при registerUser.rejected', () => {
+      const state = userSlice(initialState, actions.rejected);
+      expect(state.request).toBe(false);
+      expect(state.error).toBe(actions.rejected.error.message);
     });
-    test('тест синхронного экшена registerUser.fulfilled', () => {
-      const nextState = userSlice(initialState, actions.fulfilled);
-      expect(nextState.request).toBe(false);
-      expect(nextState.error).toBe(null);
-      expect(nextState.userData).toBe(actions.fulfilled.payload.user);
+
+    test('Сохраняет данные пользователя при registerUser.fulfilled', () => {
+      const state = userSlice(initialState, actions.fulfilled);
+      expect(state.request).toBe(false);
+      expect(state.error).toBe(null);
+      expect(state.userData).toBe(actions.fulfilled.payload.user);
     });
   });
-  describe('тестирование асинхронного POST экшена loginUser', () => {
+
+  describe('Обработка действия loginUser', () => {
     const actions = {
-      pending: {
-        type: loginUser.pending.type,
-        payload: null
-      },
-      rejected: {
-        type: loginUser.rejected.type,
-        error: { message: 'Mock-error' }
-      },
+      pending: { type: loginUser.pending.type, payload: null },
+      rejected: { type: loginUser.rejected.type, error: { message: 'Mock-error' } },
       fulfilled: {
         type: loginUser.fulfilled.type,
         payload: { user: { name: 'name', email: 'email' } }
       }
     };
 
-    test('тест синхронного экшена loginUser.pending', () => {
-      const nextState = userSlice(initialState, actions.pending);
-      expect(nextState.loginUserRequest).toBe(true);
-      expect(nextState.isAuthChecked).toBe(true);
-      expect(nextState.isAuthenticated).toBe(false);
-      expect(nextState.error).toBe(actions.pending.payload);
+    test('Устанавливает начальные флаги при loginUser.pending', () => {
+      const state = userSlice(initialState, actions.pending);
+      expect(state.loginUserRequest).toBe(true);
+      expect(state.isAuthChecked).toBe(true);
+      expect(state.isAuthenticated).toBe(false);
+      expect(state.error).toBe(actions.pending.payload);
     });
-    test('тест синхронного экшена loginUser.rejected', () => {
-      const nextState = userSlice(initialState, actions.rejected);
-      expect(nextState.isAuthChecked).toBe(false);
-      expect(nextState.isAuthenticated).toBe(false);
-      expect(nextState.loginUserRequest).toBe(false);
-      expect(nextState.error).toBe(actions.rejected.error.message);
+
+    test('Обрабатывает ошибку при loginUser.rejected', () => {
+      const state = userSlice(initialState, actions.rejected);
+      expect(state.isAuthChecked).toBe(false);
+      expect(state.isAuthenticated).toBe(false);
+      expect(state.loginUserRequest).toBe(false);
+      expect(state.error).toBe(actions.rejected.error.message);
     });
-    test('тест синхронного экшена loginUser.fulfilled', () => {
-      const nextState = userSlice(initialState, actions.fulfilled);
-      expect(nextState.isAuthChecked).toBe(false);
-      expect(nextState.isAuthenticated).toBe(true);
-      expect(nextState.loginUserRequest).toBe(false);
-      expect(nextState.error).toBe(null);
-      expect(nextState.userData).toBe(actions.fulfilled.payload.user);
+
+    test('Сохраняет авторизацию и пользователя при loginUser.fulfilled', () => {
+      const state = userSlice(initialState, actions.fulfilled);
+      expect(state.isAuthChecked).toBe(false);
+      expect(state.isAuthenticated).toBe(true);
+      expect(state.loginUserRequest).toBe(false);
+      expect(state.error).toBe(null);
+      expect(state.userData).toBe(actions.fulfilled.payload.user);
     });
   });
-  describe('тестирование асинхронного PATCH экшена updateUser', () => {
+
+  describe('Обработка действия updateUser', () => {
     const actions = {
-      pending: {
-        type: updateUser.pending.type,
-        payload: null
-      },
-      rejected: {
-        type: updateUser.rejected.type,
-        error: { message: 'Mock-error' }
-      },
+      pending: { type: updateUser.pending.type, payload: null },
+      rejected: { type: updateUser.rejected.type, error: { message: 'Mock-error' } },
       fulfilled: {
         type: updateUser.fulfilled.type,
         payload: { user: { name: 'name', email: 'email' } }
       }
     };
 
-    test('тест синхронного экшена updateUser.pending', () => {
-      const nextState = userSlice(initialState, actions.pending);
-      expect(nextState.request).toBe(true);
-      expect(nextState.error).toBe(actions.pending.payload);
+    test('Устанавливает request=true при updateUser.pending', () => {
+      const state = userSlice(initialState, actions.pending);
+      expect(state.request).toBe(true);
+      expect(state.error).toBe(actions.pending.payload);
     });
-    test('тест синхронного экшена updateUser.rejected', () => {
-      const nextState = userSlice(initialState, actions.rejected);
-      expect(nextState.request).toBe(false);
-      expect(nextState.error).toBe(actions.rejected.error.message);
+
+    test('Устанавливает ошибку при updateUser.rejected', () => {
+      const state = userSlice(initialState, actions.rejected);
+      expect(state.request).toBe(false);
+      expect(state.error).toBe(actions.rejected.error.message);
     });
-    test('тест синхронного экшена updateUser.fulfilled', () => {
-      const nextState = userSlice(initialState, actions.fulfilled);
-      expect(nextState.request).toBe(false);
-      expect(nextState.error).toBe(null);
-      expect(nextState.response).toBe(actions.fulfilled.payload.user);
+
+    test('Обновляет пользователя при updateUser.fulfilled', () => {
+      const state = userSlice(initialState, actions.fulfilled);
+      expect(state.request).toBe(false);
+      expect(state.error).toBe(null);
+      expect(state.response).toBe(actions.fulfilled.payload.user);
     });
   });
-  describe('тестирование асинхронного POST экшена logoutUser', () => {
+
+  describe('Обработка действия logoutUser', () => {
     const actions = {
-      pending: {
-        type: logoutUser.pending.type,
-        payload: null
-      },
-      rejected: {
-        type: logoutUser.rejected.type,
-        error: { message: 'Mock-error' }
-      },
-      fulfilled: {
-        type: logoutUser.fulfilled.type,
-        payload: null
-      }
+      pending: { type: logoutUser.pending.type, payload: null },
+      rejected: { type: logoutUser.rejected.type, error: { message: 'Mock-error' } },
+      fulfilled: { type: logoutUser.fulfilled.type, payload: null }
     };
 
-    test('тест синхронного экшена logoutUser.pending', () => {
-      const nextState = userSlice(initialState, actions.pending);
-      expect(nextState.request).toBe(true);
-      expect(nextState.isAuthChecked).toBe(true);
-      expect(nextState.isAuthenticated).toBe(true);
-      expect(nextState.error).toBe(actions.pending.payload);
+    test('Устанавливает request=true при logoutUser.pending', () => {
+      const state = userSlice(initialState, actions.pending);
+      expect(state.request).toBe(true);
+      expect(state.isAuthChecked).toBe(true);
+      expect(state.isAuthenticated).toBe(true);
+      expect(state.error).toBe(actions.pending.payload);
     });
-    test('тест синхронного экшена logoutUser.rejected', () => {
-      const nextState = userSlice(initialState, actions.rejected);
-      expect(nextState.isAuthChecked).toBe(false);
-      expect(nextState.isAuthenticated).toBe(true);
-      expect(nextState.request).toBe(false);
-      expect(nextState.error).toBe(actions.rejected.error.message);
+
+    test('Обрабатывает ошибку при logoutUser.rejected', () => {
+      const state = userSlice(initialState, actions.rejected);
+      expect(state.isAuthChecked).toBe(false);
+      expect(state.isAuthenticated).toBe(true);
+      expect(state.request).toBe(false);
+      expect(state.error).toBe(actions.rejected.error.message);
     });
-    test('тест синхронного экшена logoutUser.fulfilled', () => {
-      const nextState = userSlice(initialState, actions.fulfilled);
-      expect(nextState.isAuthChecked).toBe(false);
-      expect(nextState.isAuthenticated).toBe(false);
-      expect(nextState.request).toBe(false);
-      expect(nextState.error).toBe(null);
-      expect(nextState.userData).toBe(actions.fulfilled.payload);
+
+    test('Сбрасывает авторизацию при logoutUser.fulfilled', () => {
+      const state = userSlice(initialState, actions.fulfilled);
+      expect(state.isAuthChecked).toBe(false);
+      expect(state.isAuthenticated).toBe(false);
+      expect(state.request).toBe(false);
+      expect(state.error).toBe(null);
+      expect(state.userData).toBe(actions.fulfilled.payload);
     });
   });
 });
