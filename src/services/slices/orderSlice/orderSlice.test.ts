@@ -1,7 +1,7 @@
 import orderSlice, { initialState, getOrderByNumber } from './orderSlice';
 
-describe('тестирование редьюсера orderSlice', () => {
-  describe('тестирование асинхронного POST экшена getOrderByNumber', () => {
+describe('Тестирование редьюсера orderSlice', () => {
+  describe('Тестирование асинхронного действия getOrderByNumber', () => {
     const actions = {
       pending: {
         type: getOrderByNumber.pending.type,
@@ -9,7 +9,7 @@ describe('тестирование редьюсера orderSlice', () => {
       },
       rejected: {
         type: getOrderByNumber.rejected.type,
-        error: { message: 'Funny mock-error' }
+        error: { message: 'Mock-error' }
       },
       fulfilled: {
         type: getOrderByNumber.fulfilled.type,
@@ -17,17 +17,19 @@ describe('тестирование редьюсера orderSlice', () => {
       }
     };
 
-    test('тест синхронного экшена getOrderByNumber.pending', () => {
+    test('Должен установить request=true при getOrderByNumber.pending', () => {
       const nextState = orderSlice(initialState, actions.pending);
       expect(nextState.request).toBe(true);
       expect(nextState.error).toBe(actions.pending.payload);
     });
-    test('тест синхронного экшена getOrderByNumber.rejected', () => {
+
+    test('Должен установить ошибку при getOrderByNumber.rejected', () => {
       const nextState = orderSlice(initialState, actions.rejected);
       expect(nextState.request).toBe(false);
       expect(nextState.error).toBe(actions.rejected.error.message);
     });
-    test('тест синхронного экшена getOrderByNumber.fulfilled', () => {
+
+    test('Должен сохранить ответ заказа при getOrderByNumber.fulfilled', () => {
       const nextState = orderSlice(initialState, actions.fulfilled);
       expect(nextState.request).toBe(false);
       expect(nextState.error).toBe(null);

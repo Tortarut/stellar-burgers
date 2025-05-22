@@ -1,0 +1,9 @@
+{
+  "success": true,
+  "accessToken": "wasd",
+  "refreshToken": "wasd123",
+  "user": {
+    "email": "user@fakemail.com",
+    "name": "User1"
+  }
+}
